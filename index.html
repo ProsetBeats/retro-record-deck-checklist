@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.92, maximum-scale=0.92, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0a0a0a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -12,6 +12,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+
+        :root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html, body {
+  height: 100%;
+}
+
+.app {
+  min-height: 100svh; /* стабильно для мобил */
+  padding-bottom: calc(16px + var(--safe-bottom));
+  padding-top: calc(8px + var(--safe-top));
+  display: flex;
+  flex-direction: column;
+}
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000;
@@ -40,7 +57,9 @@
 <link rel="stylesheet" href="/index.css">
 </head>
 <body>
+    <div class="app">
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+<div>
+        <script type="module" src="/index.tsx"></script>
 </body>
 </html>
